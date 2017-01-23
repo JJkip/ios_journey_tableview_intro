@@ -21,6 +21,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //To hide the status bar return true
+    override var prefersStatusBarHidden: Bool{
+        return false
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantNames.count
@@ -30,6 +34,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         //configure the cell
         cell.textLabel?.text = restaurantNames[indexPath.row]
+        
+        //To Load a single image
+        //cell.imageView?.image = UIImage(named: "restaurant")
+        cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
         return cell
     }
 }
